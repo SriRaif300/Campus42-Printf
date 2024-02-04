@@ -6,7 +6,7 @@
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:35:39 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/02 16:31:12 by cgaratej         ###   ########.fr       */
+/*   Updated: 2024/02/04 19:52:41 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include <stdarg.h>
 
 int	ft_printf(char const *str, ...);
+int	ft_strlen(const char *str);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int n);
 int	ft_putnbr_nosig(unsigned int n);
+int	ft_puthex_min(int n, char type);
 
 #endif

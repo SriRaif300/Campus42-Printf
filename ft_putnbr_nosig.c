@@ -6,7 +6,7 @@
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:23:26 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/02 16:30:46 by cgaratej         ###   ########.fr       */
+/*   Updated: 2024/02/04 19:28:20 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_putnbr_nosig(unsigned int n)
 	int	len;
 
 	len = 0;
-
 	if (n > 9)
 	{
 		len += ft_putnbr_nosig(n / 10);

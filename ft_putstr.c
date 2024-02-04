@@ -6,7 +6,7 @@
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:40:00 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/02 15:05:45 by cgaratej         ###   ########.fr       */
+/*   Updated: 2024/02/04 19:28:53 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putstr(char *str)
 	{
 		if (write(1, "(null)", 6) != 6)
 			return (-1);
-		return (6);	
+		return (6);
 	}
 	while (str[len])
 	{

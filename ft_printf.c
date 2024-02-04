@@ -6,7 +6,7 @@
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:38:13 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/02 16:27:03 by cgaratej         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:01:02 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_arg_type(char c, va_list element)
 	if (c == 'u')
 		return (ft_putnbr_nosig(va_arg(element, unsigned int)));
 	if (c == 'x')
-		return (0);
+		return (ft_puthex_min(va_arg(element, int), 'x'));
 	if (c == 'X')
-		return (0);
+		return (ft_puthex_min(va_arg(element, int), 'X'));
 	return (0);
 }
 
@@ -56,9 +56,10 @@ int	ft_printf(char const *str, ...)
 	int		i;
 	int		len;
 
-	i = 0;
+	i = -1;
+	len = 0;
 	va_start(args, str);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '%')
 		{
@@ -73,7 +74,6 @@ int	ft_printf(char const *str, ...)
 				return (-1);
 			len++;
 		}
-		i++;
 	}
 	va_end(args);
 	return (len);
