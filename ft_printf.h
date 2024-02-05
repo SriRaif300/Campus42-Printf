@@ -6,7 +6,7 @@
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:35:39 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/04 19:52:41 by cgaratej         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:03:28 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdarg.h>
 
 int	ft_printf(char const *str, ...);
@@ -23,6 +22,7 @@ int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int n);
 int	ft_putnbr_nosig(unsigned int n);
-int	ft_puthex_min(int n, char type);
+int	ft_puthex(int n, char type);
+int	ft_putmem(void *p);
 
 #endif

@@ -1,34 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_nosig.c                                  :+:      :+:    :+:   */
+/*   ft_putmem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgaratej <cgaratej@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 16:23:26 by cgaratej          #+#    #+#             */
-/*   Updated: 2024/02/05 12:25:52 by cgaratej         ###   ########.fr       */
+/*   Created: 2024/02/05 12:48:28 by cgaratej          #+#    #+#             */
+/*   Updated: 2024/02/05 14:30:28 by cgaratej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_nosig(unsigned int n)
+static int	ft_hex(char *base, unsigned long n, int len)
 {
-	int	len;
+	unsigned long	b;
 
-	len = 0;
-	if (n > 9)
+	b = ft_strlen(base);
+	if (n >= b)
 	{
-		len += ft_putnbr_nosig(n / 10);
+		len = ft_hex(base, n / b, len);
 		if (len == -1)
 			return (-1);
-		n = n % 10;
-	}
-	if (n <= 9)
-	{
-		if (ft_putchar(n + '0') == -1)
+		if (write (1, &base[n % b], 1) == -1)
 			return (-1);
 		len++;
 	}
+	else if (n < b)
+	{
+		if (write (1, &base[n % b], 1) == -1)
+			return (-1);
+		len++;
+	}
+	return (len);
+}
+
+int	ft_putmem(void *p)
+{
+	unsigned long	punt;
+	int				len;
+
+	len = 0;
+	punt = (unsigned long)p;
+	if (write(1, "0x", 2) != 2)
+		return (-1);
+	len = ft_hex("0123456789abcdef", punt, len);
+	if (len == -1)
+		return (-1);
+	len += 2;
 	return (len);
 }
